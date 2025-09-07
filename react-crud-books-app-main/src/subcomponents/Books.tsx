@@ -24,8 +24,13 @@ let Books = ({books}: {books: any[]}) => {
         setBooksList(BooksData.getBooks());
     }
 
+    let sortBooks = () => {
+        const sorted = [...booksList].sort((a, b) => a.title.localeCompare(b.title));
+        setBooksList(sorted);
+    }
+
     return (
-        <ListBooks books={booksList} deleteBook={deleteBook} />
+        <ListBooks books={booksList} deleteBook={deleteBook} sortBooks={sortBooks} />
     )
 }
 

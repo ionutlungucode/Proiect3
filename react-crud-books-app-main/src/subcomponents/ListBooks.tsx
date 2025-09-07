@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-let ListBooks = ({books, deleteBook}) => {
+let ListBooks = ({books, deleteBook, sortBooks}) => {
 
 
     // If no books are available, display a message
@@ -16,9 +16,12 @@ let ListBooks = ({books, deleteBook}) => {
 
     // If books are available, display them
     return (
-        <> 
+        <>
             <div className="container mt-4">
-                <h2 className="mb-4">Book List</h2>
+                <div className="d-flex justify-content-between align-items-center mb-4">
+                    <h2 className="mb-0">Book List</h2>
+                    <Button variant="secondary" onClick={sortBooks}>Sort Alphabetically</Button>
+                </div>
 
                 <div className="row">
                     {books.map((book, index) => (
